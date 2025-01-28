@@ -1,0 +1,12 @@
+variable "virtual_machines" {
+  description = "Map of virtual machines to be created"
+  type = map(object({
+    vm_name   = string
+    vm_desc   = string
+    vm_cpu    = number
+    ram       = number
+    disk      = number
+    disk_name = string
+    template  = string
+  }))
+}

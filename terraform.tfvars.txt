@@ -1,0 +1,29 @@
+virtual_machines = {
+  "vm-1" = {
+    vm_name      = "terraform1" #vm name
+    vm_desc      = "vm for tests" #about vm
+    vm_cpu       = 2 #cpu
+    ram          = 2 #ram
+    disk         = 20 #disk capacity
+    disk_name    = "boot-disk-1" #disk name
+    template     = "fd85bll745cg76f707mq" #disk image id
+  },
+  "vm-2" = {
+    vm_name      = "terraform2" #vm name
+    vm_desc      = "vm for tests" #about vm
+    vm_cpu       = 2 #cpu
+    ram          = 2 #ram
+    disk         = 20 #disk capacity
+    disk_name    = "boot-disk-2" #disk name
+    template     = "fd85bll745cg76f707mq" #disk image id
+  },
+  "vm-3" = {
+    vm_name      = "terraform3" #vm name
+    vm_desc      = "vm for tests" #about vm
+    vm_cpu       = 2 #cpu
+    ram          = 2 #ram
+    disk         = 20 #disk capacity
+    disk_name    = "boot-disk-3" #disk name
+    template     = "fd85bll745cg76f707mq" #disk image id
+  }
+}

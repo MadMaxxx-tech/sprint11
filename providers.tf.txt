@@ -1,0 +1,16 @@
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+      version = ">= 0.129.0"
+    }
+  }
+  required_version = ">= 1.0.0"
+}
+
+provider "yandex" {
+  cloud_id  = "b1gafuuveel9ep5l04sd"
+  folder_id = "b1gvr8p23hmi4t71hueo"
+  zone      = "ru-central1-a"
+  service_account_key_file = "/home/madmax/key.json"
+}

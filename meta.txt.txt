@@ -1,0 +1,12 @@
+#cloud-config
+users:
+  - name: madmax
+    groups: sudo
+    shell: /bin/bash
+    sudo: ["ALL=(ALL) NOPASSWD:ALL"]
+    ssh-authorized-keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDlHzkZEK0ubYiaEsH84G1RteW80inqaowAXmxsNGQ95cKYQkID8mp4cvZIkpbtzr4Aaic2Wo1Puiom1a8b9w+EAk7WQudzjocjVTjmie0G0pr2HkWZV8X+QQqjdWY0tzLGsXk25MbxGwu9Cg6kVKXEfHKYVXZP4XL9EPPYZjWZDu0KJQwgRrp4dv8+xPsxulloJPznED57AJbVBgTp8VsqGjPJii/pH13ms0fKvbfJTDrNfYHGY/IEhfDpMTq7I+fHoxNQmPigS8VR9OwI42OFezJXWGASc9BOH+uHYxDvyFvVVl6tuFnU9Dj0679MSLnREYbkorI+PPlSj6uNz3413J0oyZe0YgF0fOZ7ga6R482dyU+tvanMZ7JCw9BhLl7JjYpGMmumZsAY7AJGLVHljMhchtU9+AO1ErMYu6b1YDtVd/wQSxCuWPv/zsPOMwRPbxUu70mkNk5jjJLSk8QkRlQGQNaf+OdmHQTZ97PQivq0EHvqRtKRHluCOKVMxDE= madmax@vm-ubuntu-first"
+chpasswd:
+  list: |
+    madmax:<password>
+  expire: false
