@@ -1,0 +1,23 @@
+---
+- name: Установка стандартных пакетов
+  hosts: all
+  roles:
+    - role: default_packages
+  tags:
+    - install_packages
+
+- name: Настройка проксирующего Nginx
+  hosts: terraform1
+  roles:
+    - role: nginx_proxy
+  vars:
+    target_server: "http://84.201.132.156:80"
+  tags:
+    - nginx_proxy
+
+- name: Настройка отдающего Nginx
+  hosts: nginx_servers
+  roles:
+    - role: nginx_server
+  tags:
+    - nginx_server
