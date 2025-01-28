@@ -1,0 +1,49 @@
+---
+# tasks file for default_packages
+
+- name: Change hostname
+  hostname:
+    name: "{{ inventory_hostname }}"
+  when: inventory_hostname != ansible_hostname
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Fix broken packages
+  apt:
+    autoremove: yes
+    autoclean: yes
+
+- name: Add GPG key for Zabbix
+  apt_key:
+    url: "http://repo.zabbix.com/zabbix-official-repo.key"
+    state: present
+
+- name: Add Zabbix repository
+  apt_repository:
+    repo: "deb http://repo.zabbix.com/zabbix/6.0/ubuntu focal main"
+    state: present
+
+- name: Update apt cache again
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+
+- name: Install packages
+  apt:
+    name: "{{ packages_to_install }}"
+    state: present
+  when: ansible_distribution in ["Ubuntu"]
+
+- name: Configure zabbix-agent
+  template:
+    src: zabbix_agentd.j2
+    dest: /etc/zabbix/zabbix_agentd.conf
+
+- name: Start and enable zabbix-agent
+  service:
+    name: zabbix-agent
+    state: started
+    enabled: yes
